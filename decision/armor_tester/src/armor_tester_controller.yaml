@@ -1,0 +1,20 @@
+armor_tester_controller:
+    command_topic:
+        type: string
+        default_value: "/cmd_vel"
+        description: "Topic from which ArmorTesterController subscrive velocity commands"
+
+    feedback_topic:
+        type: string
+        default_value: ""
+        description: "Topic from which ArmorTesterController publish motor states"
+
+    unitree_joint:
+        type: string
+        default_value: "unitree_motor"
+        description: "Joint name of UniTree motor"
+
+    dji_joint:
+        type: string
+        default_value: "dji_motor"
+        description: "Joint name of DJI motor"
