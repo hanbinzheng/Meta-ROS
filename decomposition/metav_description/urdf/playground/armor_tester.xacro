@@ -1,6 +1,6 @@
-<?xml version="1.0">?
+<?xml version="1.0"?>
 
-<robot xmlns:xacro="https://www.ros.org/wiki/xacro">
+<robot xmlns:xacro="https://www.ros.org/wiki/xacro" name="armor_tester">
 
     <ros2_control name="armor_tester_unitree" type="system">
         <hardware>
@@ -17,7 +17,7 @@
     <ros2_control name="armor_tester_dji" type="system">
         <hardware>
             <plugin>meta_hardware/MetaRobotDjiMotorNetwork</plugin>
-            <param name="can_network_name"can_1</param>
+            <param name="can_network_name">can_1</param>
         </hardware>
         <joint name="motor2">
             <command_interface name="effort"/>
