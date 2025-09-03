@@ -1,0 +1,41 @@
+<?xml version="1.0">?
+
+<robot xmlns:xacro="https://www.ros.org/wiki/xacro">
+
+    <ros2_control name="armor_tester_unitree" type="system">
+        <hardware>
+            <plugin>meta_hardware/MetaRobotUnitreeMotorInterface</plugin>
+            <param name="tty_devpath">/dev/tty_RS485_1</param>
+        </hardware>
+        <joint name="motor1">
+            <command_interface name="velocity"/>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+        </joint>
+    </ros2_control>
+
+    <ros2_control name="armor_tester_dji" type="system">
+        <hardware>
+            <plugin>meta_hardware/MetaRobotDjiMotorNetwork</plugin>
+            <param name="can_network_name"can_1</param>
+        </hardware>
+        <joint name="motor2">
+            <command_interface name="effort"/>
+            <state_interface name="position"/>
+            <state_interface name="velocity"/>
+            <state_interface name="effort"/>
+            <param name="motor_model">M3508</param>
+            <param name="motor_id">3</param>
+            <param name="mechanical_reduction">20.0</param>
+            <param name="offset">0.0</param>
+        </joint>
+    </ros2_control>
+
+  <link name="world"/>
+  <link name="tool_link"/>
+  <joint name="motor1" type="fixed">
+    <origin xyz="0 0 0" rpy="0 0 0" />
+    <parent link="world"/>
+    <child link="tool_link"/>
+  </joint>
+</robot>
